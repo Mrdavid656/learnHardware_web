@@ -1,0 +1,39 @@
+<nz-card [nzTitle]="data[pos].pregunta" >
+  <img src="http://localhost:8000{{data[pos].recurso}}" alt="recurso de la pregunta" *ngIf="data[pos].recurso">
+  <mat-grid-list cols="2" rowHeight="2:1" *ngIf="data[pos].tipo == 1">
+    <mat-grid-tile *ngFor="let opcion of data[pos].opciones" style="border: 1px solid;">
+      <input type="radio" id="rad" name="answer" [value]="opcion.id" class="check-radio" (change)="opcion_checked(opcion)">
+      <img class="img-opcions" src="http://localhost:8000{{opcion.recurso.file}}" alt="opciones">
+    </mat-grid-tile>
+  </mat-grid-list>
+  <mat-grid-list cols="2" rowHeight="2:1" *ngIf="data[pos].tipo == 0">
+    <mat-grid-tile *ngFor="let opcion of data[pos].opciones" style="border: 1px solid;">
+      <input type="radio" id="rad1" name="answer" [value]="opcion.id" class="check-radio" (change)="opcion_checked(opcion)">
+      <p>
+        {{opcion.opcion}}
+      </p>
+    </mat-grid-tile>
+  </mat-grid-list>
+  <nz-modal [(nzVisible)]="isVisibleAws" nzTitle="Pregunta respondida" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()">
+    <ng-container *nzModalContent class="nz-modal-container">
+      <div *ngIf="opcionSeleccionada.opcion_correcta">
+        <p> Excelente! </p>
+        <p> + 10pts </p>
+      </div>
+      <div *ngIf="opcionSeleccionada.opcion_correcta == false">
+        <p> No te preocupes, iremos mejorando </p>
+        <p> + 0 pts </p>
+      </div>
+    </ng-container>
+  </nz-modal>
+  <nz-modal [(nzVisible)]="isVisibleFin" nzTitle="Preguntas Finalizadas" (nzOnCancel)="handleFin()" (nzOnOk)="handleFin()">
+    <ng-container *nzModalContent class="nz-modal-container">
+      <p>
+        Su puntaje final de esta leccion fue de: {{puntaje}} pts.
+      </p>
+    </ng-container>
+  </nz-modal>
+  <div style="margin-top: 20px; display: flex; justify-content: flex-end">
+    <button nz-button nzType="primary" [disabled]="opcionSeleccionada == null" (click)="showModalAws()">Responder</button>
+  </div>
+</nz-card>

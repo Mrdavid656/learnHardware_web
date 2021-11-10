@@ -3,7 +3,12 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  api: {
+    base: 'http://' + window.location.hostname + ':8000',
+    juego: 'http://' + window.location.hostname + ':8000/api/juegos/',
+    usuarios: 'http://' + window.location.hostname + ':8000/api/usuarios/'
+  }
 };
 
 /*

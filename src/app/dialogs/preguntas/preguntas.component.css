@@ -1,0 +1,17 @@
+.img-opcions{
+  height: 320px;
+  image-resolution: from-image;
+  object-fit: contain;
+}
+
+.check-radio{
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  cursor: pointer
+}
+
+.nz-modal-container div p{
+  width: 100%;
+  text-align: center;
+}

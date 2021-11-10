@@ -1,0 +1,28 @@
+<div class="center-column full-height">
+  <div class="main-content">
+    <h2>
+      Inicio de sesión
+    </h2>
+    <form [formGroup]="authForm">
+      <div class="login">
+        <div class="custom-input">
+          <span class="material-icons">email</span>
+          <input type="text" placeholder="Tu nombre de usuario" formControlName="username">
+        </div>
+        <div class="custom-input">
+          <span class="material-icons">lock</span>
+          <input type="password" placeholder="Tu contraseña" formControlName="pass">
+        </div>
+      </div>
+      <p>
+        No tienes una cuenta?. <a routerLink="/registro">Registrate</a>
+      </p>
+      <div class="actions">
+        <button class="button_principal" (click)="login()" mat-raised-button [disabled]="authForm.invalid">
+          ¡Iniciar sesión!
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+

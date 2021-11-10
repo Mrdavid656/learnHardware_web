@@ -1,0 +1,65 @@
+.main-content{
+  padding: 15px 20px;
+  height: 30vh;
+  width: 20vw;
+  border: 1px solid #2c3e50;
+  box-shadow: 1px 1px 10px 2px #2c3e50;
+}
+
+.login{
+  .form-content{
+    padding: 20px 30px;
+    width: 23vw;
+    background: white;
+    border-top-right-radius: inherit;
+    border-bottom-right-radius: inherit;
+  }
+
+  .buttons-registers button{
+    margin: 20px auto;
+  }
+
+  .login div{
+    margin: 20px 0;
+  }
+
+  .custom-input{
+    border: 2px solid #ececec;
+    border-radius: 20px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    margin: 20px 0;
+
+    span{
+      margin-right: 15px;
+      color: #7acaca;
+    }
+
+    input{
+      border: none;
+      height: 100%;
+      width: 90%;
+    }
+
+    input:focus{
+      outline: none;
+    }
+
+    input::placeholder{
+      color: #bec0c3;
+    }
+  }
+}
+
+
+.actions {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+form{
+  height: 20vh;
+}

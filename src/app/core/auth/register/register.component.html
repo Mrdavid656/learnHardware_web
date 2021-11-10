@@ -1,0 +1,65 @@
+<div class="register full-height center-column background">
+  <div class="main-content">
+    <div class="center-content white">
+      <div class="form-content">
+        <div class="header">
+          <div class="title">
+            <h1>
+              Registrate
+            </h1>
+          </div>
+          <div class="subtitle">
+            <label>
+              ¿Tienes cuenta?
+            </label>
+            <label (click)="goLogin()" class="link">
+              ¡Inicia sesión!
+            </label>
+          </div>
+        </div>
+        <form [formGroup]="authForm">
+          <div class="login">
+            <div class="contenedor_input">
+              <div class="custom-input">
+                <span class="material-icons">person_outline</span>
+                <input type="text" placeholder="Tu nombre" formControlName="firstname">
+              </div>
+            </div>
+            <div class="contenedor_input">
+              <div class="custom-input">
+                <span class="material-icons">person_outline</span>
+                <input type="text" placeholder="Tu apellido" formControlName="lastname">
+              </div>
+            </div>
+            <div class="contenedor_input">
+              <div class="custom-input">
+                <span class="material-icons">email</span>
+                <input type="text" placeholder="Tu nombre de usuario" formControlName="username">
+              </div>
+            </div>
+            <div class="contenedor_input">
+              <div class="custom-input">
+                <span class="material-icons">lock</span>
+                <input type="password" placeholder="Tu contraseña" formControlName="pass">
+              </div>
+            </div>
+            <div class="contenedor_input">
+              <div class="custom-input">
+                <span class="material-icons">lock</span>
+                <input type="password" placeholder="Reescribe tu contraseña" formControlName="pass_confirm">
+              </div>
+            </div>
+            <mat-error *ngIf="authForm.get('pass')?.value != authForm.get('pass_confirm')?.value">
+              Las contraseñas no son iguales
+            </mat-error>
+          </div>
+          <div class="center-content actions">
+            <button class="button_principal" (click)="registrar()" mat-raised-button [disabled]="authForm.invalid">
+              ¡Registrarse!
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

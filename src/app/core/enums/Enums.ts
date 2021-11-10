@@ -1,0 +1,5 @@
+export enum CATEGORIAS_LECCION {
+  NOVATO,
+  SABIONDO,
+  EXPERTO
+}

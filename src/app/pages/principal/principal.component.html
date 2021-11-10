@@ -1,0 +1,50 @@
+<nz-layout class="app-layout">
+  <nz-sider class="menu-sidebar"
+            nzCollapsible
+            nzWidth="256px"
+            nzBreakpoint="md"
+            [(nzCollapsed)]="isCollapsed"
+            [nzTrigger]="null">
+    <div class="sidebar-logo">
+      <a href="/">
+        <img src="assets/img/logo.jpg" alt="logo">
+        <h1>LearnHardware</h1>
+      </a>
+    </div>
+    <ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
+      <li nz-menu-item routerLink="/dashboard">
+        <i nz-icon nzType="play-circle"></i>
+        <span>Jugar</span>
+      </li>
+      <li nz-menu-item>
+        <i nz-icon nzType="fund"></i>
+        <span>Estadisticas</span>
+      </li>
+      <li nz-menu-item routerLink="/perfil">
+        <i nz-icon nzType="user"></i>
+        <span>Perfil</span>
+      </li>
+      <li nz-menu-item (click)="cerrarSesion()">
+        <i nz-icon nzType="logout"></i>
+        <span>Salir</span>
+      </li>
+    </ul>
+  </nz-sider>
+  <nz-layout>
+    <nz-header>
+      <div class="app-header">
+        <span class="header-trigger" (click)="isCollapsed = !isCollapsed">
+            <i class="trigger"
+               nz-icon
+               [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
+            ></i>
+        </span>
+      </div>
+    </nz-header>
+    <nz-content>
+      <div class="inner-content">
+        <router-outlet></router-outlet>
+      </div>
+    </nz-content>
+  </nz-layout>
+</nz-layout>

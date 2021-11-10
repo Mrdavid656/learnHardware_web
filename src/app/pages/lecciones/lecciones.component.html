@@ -1,0 +1,39 @@
+<div class="main-container">
+  <div class="two-columns">
+    <div style="height: 100%; overflow-y: auto">
+      <nz-card [nzTitle]="leccion.titulo" class="nz-card">
+        <div style="display: flex">
+          <p style="margin-right: 5px"> keywords: </p>
+          <a [href]="key['link']" *ngFor="let key of keywords" style="margin-right: 5px" target="_blank">
+            {{key['key']}} ,
+          </a>
+        </div>
+        <p [innerText]="leccion.informacion"></p>
+        <nz-carousel nzAutoPlay class="nz-carousel-container" *ngIf="imagenes.length > 0">
+          <div nz-carousel-content *ngFor="let img of imagenes">
+            <img [src]="img.archivo" class="img-carousel" alt="resource from leccion">
+          </div>
+        </nz-carousel>
+        <button nz-button nzType="primary" style="margin-top: 25px" (click)="iniciarPreguntas()" nzBlock>Empezar con las preguntas :D</button>
+      </nz-card>
+    </div>
+    <div class="center-column">
+      <div class="sketchfab-embed-wrapper" *ngIf="leccion.titulo.toLowerCase() == 'cpu'">
+        <iframe title="[CPU] Ryzen R7 3700X" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share width="700" height="480" src="https://sketchfab.com/models/f69319e7ee60464280765ae737c7b07e/embed?autostart=1&camera=0&preload=1&ui_hint=0&ui_theme=dark">
+        </iframe>
+      </div>
+      <div class="sketchfab-embed-wrapper" *ngIf="leccion.titulo.toLowerCase() == 'ram'">
+        <iframe title="Random Access Memory by IrhadyKW" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share width="700" height="480" src="https://sketchfab.com/models/bf2d905ad3e8477c97b1103741879315/embed?autostart=1&camera=0&preload=1&ui_theme=dark">
+        </iframe>
+      </div>
+      <div class="sketchfab-embed-wrapper" *ngIf="leccion.titulo.toLowerCase() == 'almacenamiento'">
+        <iframe title="Storage (SSD, HDD, M.2)" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share width="700" height="480" src="https://sketchfab.com/models/bdd5fd67a7674359ab8648204b5c0575/embed?autostart=1&camera=0&preload=1&ui_theme=dark">
+        </iframe>
+      </div>
+      <div class="sketchfab-embed-wrapper" *ngIf="leccion.titulo.toLowerCase() == 'ranura expansión'">
+        <iframe title="Graphics Card" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share width="700" height="480" src="https://sketchfab.com/models/51c2b3bac64c48e098886eb134556cdd/embed?autostart=1&camera=0&preload=1">
+        </iframe>
+      </div>
+    </div>
+  </div>
+</div>

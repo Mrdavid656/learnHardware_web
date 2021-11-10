@@ -1,0 +1,48 @@
+<div class="main-container">
+  <div class="two-columns">
+    <div style="height: 100%; overflow-y: auto">
+      <nz-card nzTitle="Perfil" class="nz-card">
+        <form [formGroup]="profileForm" #formDirective="ngForm" style="display: table-caption; width: 685px;" class="full-width">
+            <mat-form-field class="full-width" appearance="outline">
+              <mat-label>Nombre</mat-label>
+              <input type="email" class="full-width" matInput formControlName="first_name" placeholder="Ex. pat@example.com">
+            </mat-form-field>
+            <mat-form-field class="full-width" appearance="outline">
+              <mat-label>Apellido</mat-label>
+              <input type="text" class="full-width" matInput formControlName="last_name" placeholder="Ex. pat@example.com">
+            </mat-form-field>
+            <mat-form-field class="full-width" appearance="outline">
+              <mat-label>Nombre de usuario</mat-label>
+              <input type="text" class="full-width" matInput formControlName="username" placeholder="Ex. pat@example.com">
+            </mat-form-field>
+            <mat-form-field class="full-width" appearance="outline">
+              <mat-label>Puntos</mat-label>
+              <input type="text" class="full-width" matInput formControlName="puntos" placeholder="Ex. pat@example.com">
+            </mat-form-field>
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Categoria</mat-label>
+            <input type="text" class="full-width" matInput formControlName="categoria" placeholder="Ex. pat@example.com">
+          </mat-form-field>
+            <mat-form-field class="full-width" appearance="outline">
+              <mat-label>Nivel</mat-label>
+              <input type="text" class="full-width" matInput formControlName="nivel" placeholder="Ex. pat@example.com">
+            </mat-form-field>
+        </form>
+      </nz-card>
+    </div>
+    <div class="center-column historial-container">
+      <ul nz-list class="full-width full-height" [nzDataSource]="data" nzBordered nzSize="large">
+        <nz-list-header>Lecciones Hechas</nz-list-header>
+        <li nz-list-item *ngFor="let historial of historico" nzNoFlex>
+          <ul nz-list-item-actions>
+            <nz-list-item-action>
+              <i nz-icon nzType="check" nzTheme="outline" style="color: green !important;" title="Respuesta respondida correctamente: +10pts" *ngIf="historial.puntos > 0"></i>
+              <i nz-icon nzType="close" nzTheme="outline" style="color: red !important;" title="Respuesta respondida incorrectamente: +0pts" *ngIf="historial.puntos == 0"></i>
+            </nz-list-item-action>
+          </ul>
+          {{ historial.trivia.leccion.titulo }} - {{historial.trivia.pregunta}} -- hecha el: {{historial.date}}
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
