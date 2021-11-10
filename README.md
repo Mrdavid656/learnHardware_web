@@ -1,4 +1,11 @@
-# Web
+# Build it u own
+
+Esta aplicacion esta hecha con mecanicas y dinamicas de ludificacion, el objetivo es el de enseñar sobre el hardware o componentes
+de tu computadora 
+
+#Build APP
+
+## Web
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.12.
 

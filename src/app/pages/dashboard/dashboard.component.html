@@ -1,12 +1,24 @@
 <div class="main-container">
   <div class="two-columns">
-    <div class="image-container">
+    <div class="image-container" *ngIf="ver3D == false">
       <img #mb src="assets/img/mb.png" class="img-responsive" alt="motherboard image">
+      <button type="button" title="ver en efecto 3D" mat-fab class="position-fab-button" (click)="ver3D = !ver3D">
+        <mat-icon> view_in_ar</mat-icon>
+      </button>
       <div *ngFor="let comp of components">
         <div class="round-element" *ngFor="let child of comp.children" [ngClass]="child.className" (click)="openList(comp)">
           <p>{{comp.name}}</p>
         </div>
       </div>
+    </div>
+    <div class="image-container" *ngIf="ver3D == true">
+      <div class="sketchfab-embed-wrapper">
+        <iframe title="Rog Strix x370-f Motherboard" frameborder="0" mozallowfullscreen="false" webkitallowfullscreen="false" allow="autoplay; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share width="800" height="100%" src="https://sketchfab.com/models/56bd8923fdf341fd8d81b717055a61dd/embed?autospin=0&autostart=1&camera=0&preload=1&ui_theme=dark">
+        </iframe>
+      </div>
+      <button type="button" title="ver en efecto 3D" mat-fab class="position-fab-button" (click)="ver3D = !ver3D">
+        <mat-icon> view_in_ar</mat-icon>
+      </button>
     </div>
     <div class="text-container">
       <h1>

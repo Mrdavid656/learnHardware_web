@@ -52,8 +52,9 @@ export class DashboardComponent implements OnInit {
       ]
     },
   ];
-
   lecciones: any[] = [];
+
+  ver3D = false;
 
   constructor(
     private leccionesService: LeccionesService,

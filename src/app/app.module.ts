@@ -32,6 +32,9 @@ import {MatInputModule} from "@angular/material/input";
 import {MatButtonModule} from "@angular/material/button";
 import {PerfilComponent} from "./pages/perfil/perfil.component";
 import {NzListModule} from "ng-zorro-antd/list";
+import {MatIconModule} from "@angular/material/icon";
+import {AuthGuard} from "./core/guards/auth.guard";
+import {NzEmptyModule} from "ng-zorro-antd/empty";
 
 registerLocaleData(es);
 
@@ -46,30 +49,32 @@ registerLocaleData(es);
     RegisterComponent,
     PerfilComponent
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        FormsModule,
-        HttpClientModule,
-        BrowserAnimationsModule,
-        IconsProviderModule,
-        NzLayoutModule,
-        NzMenuModule,
-        NzCollapseModule,
-        NzWaveModule,
-        NzButtonModule,
-        NzRateModule,
-        NzCardModule,
-        NzCarouselModule,
-        MatDialogModule,
-        MatGridListModule,
-        NzModalModule,
-        ReactiveFormsModule,
-        MatInputModule,
-        MatButtonModule,
-        NzListModule
-    ],
-  providers: [{ provide: NZ_I18N, useValue: es_ES }],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    IconsProviderModule,
+    NzLayoutModule,
+    NzMenuModule,
+    NzCollapseModule,
+    NzWaveModule,
+    NzButtonModule,
+    NzRateModule,
+    NzCardModule,
+    NzCarouselModule,
+    MatDialogModule,
+    MatGridListModule,
+    NzModalModule,
+    ReactiveFormsModule,
+    MatInputModule,
+    MatButtonModule,
+    NzListModule,
+    MatIconModule,
+    NzEmptyModule
+  ],
+  providers: [AuthGuard, { provide: NZ_I18N, useValue: es_ES }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -33,15 +33,31 @@
     <div class="center-column historial-container">
       <ul nz-list class="full-width full-height" [nzDataSource]="data" nzBordered nzSize="large">
         <nz-list-header>Lecciones Hechas</nz-list-header>
-        <li nz-list-item *ngFor="let historial of historico" nzNoFlex>
-          <ul nz-list-item-actions>
-            <nz-list-item-action>
-              <i nz-icon nzType="check" nzTheme="outline" style="color: green !important;" title="Respuesta respondida correctamente: +10pts" *ngIf="historial.puntos > 0"></i>
-              <i nz-icon nzType="close" nzTheme="outline" style="color: red !important;" title="Respuesta respondida incorrectamente: +0pts" *ngIf="historial.puntos == 0"></i>
-            </nz-list-item-action>
-          </ul>
-          {{ historial.trivia.leccion.titulo }} - {{historial.trivia.pregunta}} -- hecha el: {{historial.date}}
-        </li>
+        <div *ngIf="historico.length > 0">
+          <li nz-list-item *ngFor="let historial of historico" nzNoFlex>
+            <ul nz-list-item-actions>
+              <nz-list-item-action>
+                <i nz-icon nzType="check" nzTheme="outline" style="color: green !important;" title="Respuesta respondida correctamente: +10pts" *ngIf="historial.puntos > 0"></i>
+                <i nz-icon nzType="close" nzTheme="outline" style="color: red !important;" title="Respuesta respondida incorrectamente: +0pts" *ngIf="historial.puntos == 0"></i>
+              </nz-list-item-action>
+            </ul>
+            {{ historial.trivia.leccion.titulo }} - {{historial.trivia.pregunta}} -- hecha el: {{historial.date}}
+          </li>
+        </div>
+        <div class="center-column" *ngIf="historico.length == 0">
+          <nz-empty
+            nzNotFoundImage="https://gw.alipayobjects.com/zos/antfincdn/ZHrcdLPrvN/empty.svg"
+            [nzNotFoundContent]="contentTpl"
+          >
+            <ng-template #contentTpl>
+              <span>
+                Vaya, parece que aún no has jugado nada, ve y hecha un vistaso
+                <br>
+                <a routerLink="/dashboard">Mi primera leccion</a>
+              </span>
+            </ng-template>
+          </nz-empty>
+        </div>
       </ul>
     </div>
   </div>
