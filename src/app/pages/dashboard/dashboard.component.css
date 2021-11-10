@@ -1,0 +1,82 @@
+
+.image-container{
+  display: flex;
+  position: relative;
+}
+
+.img-responsive{
+  width: 100%;
+  margin: 0 auto;
+}
+
+.text-container{
+  padding: 20px 40px;
+}
+
+.round-element{
+  border: 2px dashed red;
+  display: flex;
+  position: absolute;
+  text-align: center;
+  background-color:rgba(255,255,255,0.4);
+  cursor: pointer;
+}
+
+.cpu{
+  top: 27%;
+  left: 49%;
+  width: 20%;
+  height: 14%;
+}
+
+.ram{
+  top: 12%;
+  right: 8%;
+  width: 15%;
+  height: 45%;
+}
+
+.alm-sata{
+  top: 77%;
+  right: 0;
+  width: 8%;
+  height: 16%;
+}
+
+.alm-m2{
+  top: 52%;
+  left: 15%;
+  width: 52%;
+  height: 7%;
+}
+
+.es{
+  top: 60%;
+  left: 21%;
+  width: 42%;
+  height: 5%;
+}
+
+.es-2{
+  top: 79%;
+  left: 21%;
+  width: 42%;
+  height: 5%;
+}
+
+.es-3{
+  top: 92%;
+  left: 21%;
+  width: 42%;
+  height: 5%;
+}
+
+.round-element p{
+  margin: auto;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.expandable-content{
+  margin-left: 25px;
+}

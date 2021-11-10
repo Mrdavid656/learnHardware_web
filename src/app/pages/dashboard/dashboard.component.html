@@ -1,0 +1,43 @@
+<div class="main-container">
+  <div class="two-columns">
+    <div class="image-container">
+      <img #mb src="assets/img/mb.png" class="img-responsive" alt="motherboard image">
+      <div *ngFor="let comp of components">
+        <div class="round-element" *ngFor="let child of comp.children" [ngClass]="child.className">
+          <p>{{comp.name}}</p>
+        </div>
+      </div>
+    </div>
+    <div class="text-container">
+      <h1>
+        Lista de juegos
+      </h1>
+      <div class="full-width expandable-content">
+        <nz-collapse class="full-width">
+          <nz-collapse-panel
+            *ngFor="let leccion of lecciones"
+            [nzHeader]="leccion.titulo"
+            [nzActive]="leccion.activo"
+          >
+            <p style="margin-bottom: 15px;">
+              {{leccion.resumen}}
+            </p>
+            <div style="display: flex; justify-content: flex-end">
+              <button nz-button nzType="primary" (click)="irLeccion(leccion)">Empecemos la leccion</button>
+            </div>
+          </nz-collapse-panel>
+          <nz-collapse-panel
+            nzHeader="MÁS PRÓXIMAMENTE"
+          >
+            <p style="margin-bottom: 15px; text-transform: uppercase">
+              Muy pronto expandiremos más nuestros juegos
+            </p>
+            <div style="display: flex; justify-content: flex-end">
+              <button disabled nz-button nzType="primary">coming soon :D</button>
+            </div>
+          </nz-collapse-panel>
+        </nz-collapse>
+      </div>
+    </div>
+  </div>
+</div>
