@@ -12,7 +12,6 @@ export class DashboardComponent implements OnInit {
   components: any[] = [
     {
       name: 'CPU',
-      method: '',
       children: [
         {
           className: 'cpu'
@@ -21,7 +20,6 @@ export class DashboardComponent implements OnInit {
     },
     {
       name: 'RAM',
-      method: '',
       children: [
         {
           className: 'ram'
@@ -30,7 +28,6 @@ export class DashboardComponent implements OnInit {
     },
     {
       name: 'ALMACENAMIENTO',
-      method: '',
       children: [
         {
           className: 'alm-sata'
@@ -42,7 +39,6 @@ export class DashboardComponent implements OnInit {
     },
     {
       name: 'RANURA EXPANSIÓN',
-      method: '',
       children: [
         {
           className: 'es'
@@ -66,6 +62,7 @@ export class DashboardComponent implements OnInit {
 
   async ngOnInit(): Promise<void> {
     this.lecciones = await this.leccionesService.listar();
+    console.log(this.lecciones);
     this.lecciones.forEach(leccion =>{
       leccion.activo = false;
     });
@@ -75,6 +72,15 @@ export class DashboardComponent implements OnInit {
     this.router.navigate(['leccion'], {
       state: { leccion: leccion }
     });
+  }
+
+  openList(component: any){
+    this.lecciones.find(leccion => {
+      if (leccion.titulo === component.name){
+        leccion.activo = true;
+      }
+    })
+    console.log(component);
   }
 
 }

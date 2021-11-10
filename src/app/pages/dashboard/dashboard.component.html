@@ -3,7 +3,7 @@
     <div class="image-container">
       <img #mb src="assets/img/mb.png" class="img-responsive" alt="motherboard image">
       <div *ngFor="let comp of components">
-        <div class="round-element" *ngFor="let child of comp.children" [ngClass]="child.className">
+        <div class="round-element" *ngFor="let child of comp.children" [ngClass]="child.className" (click)="openList(comp)">
           <p>{{comp.name}}</p>
         </div>
       </div>
