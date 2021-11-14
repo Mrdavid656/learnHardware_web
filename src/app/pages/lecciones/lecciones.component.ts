@@ -65,8 +65,6 @@ export class LeccionesComponent implements OnInit {
         if (result){
           if (result > 0){
             const currentUser = await this.usuarioService.get(this.authService.getUser().user_id);
-            console.log(currentUser);
-            console.log(this.leccion.categoria);
             if (this.leccion.categoria > currentUser.categoria ){
               let obj = {
                 categoria: this.leccion.categoria,

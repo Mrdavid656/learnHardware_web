@@ -31,10 +31,10 @@
       </nz-card>
     </div>
     <div class="center-column historial-container">
-      <ul nz-list class="full-width full-height" [nzDataSource]="data" nzBordered nzSize="large">
+      <ul nz-list class="full-width full-height"  style="overflow-y: auto" [nzDataSource]="historico" nzBordered nzSize="large">
         <nz-list-header>Lecciones Hechas</nz-list-header>
         <div *ngIf="historico.length > 0">
-          <li nz-list-item *ngFor="let historial of historico" nzNoFlex>
+          <li nz-list-item *ngFor="let historial of historico">
             <ul nz-list-item-actions>
               <nz-list-item-action>
                 <i nz-icon nzType="check" nzTheme="outline" style="color: green !important;" title="Respuesta respondida correctamente: +10pts" *ngIf="historial.puntos > 0"></i>
