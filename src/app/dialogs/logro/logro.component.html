@@ -1,0 +1,7 @@
+<nz-card nzHoverable style="width:240px" [nzCover]="coverTemplate">
+  <h3>{{data[0].nombre}}</h3>
+  <p>{{data[0].motivo}}</p>
+</nz-card>
+<ng-template #coverTemplate>
+  <img alt="example" [src]="data[0].icon" />
+</ng-template>

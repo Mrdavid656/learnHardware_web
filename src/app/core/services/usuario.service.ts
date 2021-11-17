@@ -7,12 +7,16 @@ import {HttpClient} from "@angular/common/http";
 })
 export class UsuarioService {
 
-  LECCION_PATH = environment.api.usuarios + 'usuarios/';
+  private LECCION_PATH = environment.api.usuarios + 'usuarios/';
 
   constructor(private http: HttpClient) { }
 
   listar(): Promise<any[]>{
     return this.http.get<Array<any>>(`${this.LECCION_PATH}`).toPromise();
+  }
+
+  obtenerLogros(usuarioId: number): Promise<any[]>{
+    return this.http.get<Array<any>>(`${this.LECCION_PATH}${usuarioId}/logros/`).toPromise();
   }
 
   get(id: number): Promise<any>{

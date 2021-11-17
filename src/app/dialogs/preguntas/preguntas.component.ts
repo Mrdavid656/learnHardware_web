@@ -1,8 +1,10 @@
-import {Component, Inject, OnInit} from '@angular/core';
-import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
+import {Component, Inject, OnInit,} from '@angular/core';
+import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from "@angular/material/dialog";
 import { AuthService } from 'src/app/core/services/auth/auth.service';
 import {HistorialService} from "../../core/services/historial.service";
 import Swal from "sweetalert2";
+import {LogrosService} from "../../core/services/logros.service";
+import {LogroComponent} from "../logro/logro.component";
 
 @Component({
   selector: 'app-preguntas',
@@ -25,6 +27,8 @@ export class PreguntasComponent implements OnInit {
     private dialogref: MatDialogRef<PreguntasComponent>,
     private historialService: HistorialService,
     private authService: AuthService,
+    private logrosService: LogrosService,
+    public dialog: MatDialog
   ) { }
 
   ngOnInit() {
@@ -55,6 +59,20 @@ export class PreguntasComponent implements OnInit {
       }
       await this.historialService.registrarPuntos(objHistorial);
     }
+
+    try {
+      const logros = await this.logrosService.listar({
+        usuario: this.authService.getUser().user_id
+      });
+      if(logros.length > 0){
+        this.dialog.open(LogroComponent, {
+          data: logros
+        });
+      }
+    }catch (e){
+      console.log(e);
+    }
+
     this.pos++;
     if (this.pos > this.data.length-1){
       this.pos--;

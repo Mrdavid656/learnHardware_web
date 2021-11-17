@@ -21,6 +21,8 @@ export class PerfilComponent implements OnInit {
 
   historico: any[] = [];
 
+  logros: any[] = [];
+
   constructor(
     private authService: AuthService,
     private clientServices: UsuarioService,
@@ -47,7 +49,10 @@ export class PerfilComponent implements OnInit {
     this.historico = await this.historialService.obtenerHistorial({usuario: this.currrentUser.id});
     this.historico.forEach(h => {
       h.date = moment(h.date).format('DD/MM/YYYY');
-    })
+    });
+
+    this.logros = await this.clientServices.obtenerLogros(this.authService.getUser().user_id);
+    console.log(this.logros);
   }
 
 }

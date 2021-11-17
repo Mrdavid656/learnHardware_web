@@ -35,6 +35,8 @@ import {NzListModule} from "ng-zorro-antd/list";
 import {MatIconModule} from "@angular/material/icon";
 import {AuthGuard} from "./core/guards/auth.guard";
 import {NzEmptyModule} from "ng-zorro-antd/empty";
+import {LogroComponent} from "./dialogs/logro/logro.component";
+import {MatCardModule} from "@angular/material/card";
 
 registerLocaleData(es);
 
@@ -47,7 +49,8 @@ registerLocaleData(es);
     PreguntasComponent,
     LoginComponent,
     RegisterComponent,
-    PerfilComponent
+    PerfilComponent,
+    LogroComponent
   ],
   imports: [
     BrowserModule,
@@ -72,7 +75,8 @@ registerLocaleData(es);
     MatButtonModule,
     NzListModule,
     MatIconModule,
-    NzEmptyModule
+    NzEmptyModule,
+    MatCardModule
   ],
   providers: [AuthGuard, { provide: NZ_I18N, useValue: es_ES }],
   bootstrap: [AppComponent]

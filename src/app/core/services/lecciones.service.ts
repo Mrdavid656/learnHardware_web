@@ -9,7 +9,7 @@ import {environment} from "../../../environments/environment";
 })
 export class LeccionesService {
 
-  LECCION_PATH = environment.api.juego + 'lecciones/';
+  private LECCION_PATH = environment.api.juego + 'lecciones/';
 
   constructor(private http: HttpClient) { }
 

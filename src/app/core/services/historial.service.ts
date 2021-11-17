@@ -7,7 +7,7 @@ import {HttpClient} from "@angular/common/http";
 })
 export class HistorialService {
 
-  LECCION_PATH = environment.api.juego + 'historial/';
+  private LECCION_PATH = environment.api.juego + 'historial/';
 
   constructor(private http: HttpClient) { }
 
